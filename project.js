@@ -60,6 +60,17 @@ const getBet = (balance, lines) => {
     }
 } 
 
+const transpose = (reels) => {
+    const rows = [];
+
+    for(let i=0; i<ROWS; i++){
+        rows.push([]);
+        for(let j=0; j<COLS; j++){
+            rows[i].push(reels[j][i]);
+        }
+    }
+}
+
 const spin = () => {
     let symbols = [];
 
@@ -82,7 +93,8 @@ const spin = () => {
         }
     }
 
-    return reels;
+    let transposedReels = transpose(reels);
+    return transposedReels;
 }
 
 let balance = getDeposit();
