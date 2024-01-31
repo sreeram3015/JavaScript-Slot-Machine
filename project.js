@@ -28,5 +28,5 @@ const getNumberOfLines = () => {
     }
 }
 
-const depositAmount = getDeposit();
+let balance = getDeposit();
 const numberOfLines = getNumberOfLines();
