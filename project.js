@@ -69,6 +69,7 @@ const transpose = (reels) => {
             rows[i].push(reels[j][i]);
         }
     }
+    return rows;
 }
 
 const spin = () => {
@@ -97,7 +98,21 @@ const spin = () => {
     return transposedReels;
 }
 
+const display = (rows) => {
+    for(const row of rows){
+        let rowString = "";
+        for(const [i, symbol] of row.entries()){
+            rowString += symbol;
+            if(i != rows.length-1){
+                rowString += " | "
+            }
+        }
+    console.log(rowString);
+    }
+}
+
 let balance = getDeposit();
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
 const reels = spin();
+display(reels);
